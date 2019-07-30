@@ -1,0 +1,61 @@
+---
+# hggraph configuraions
+
+# The output DOT Graphviz file
+graphviz: "./graphviz.gv"
+
+# Specify if hggraph needs to retrieve the change set information from the repository directory.
+# Yes - needs to read repository directly. The variable "repo" must be specified.
+# No  - hggraph will read change sets from a file specified by variable "csetFile".
+
+retrieveChangeSets: Yes
+# The location of the local Mercurial repository directory
+# This must be replaced with a correct full directory path of the local Mercurial repository.
+repo: "please_replace_repo"
+
+# The Change Set (CSET) file must be produced by the following command:
+# hg log -r "branch('re:JPMC_15R2.+') or branch('re:JPMC_15R3.+') or branch('re:JPMC_15R6.+')" --template '"branch":"{branch}","children":"{children}","user":"{author}","date":"{date|isodate}","message":"{firstline(desc)}","tags":"{tags}","rev":"{rev}","node":"{node}","p1node":"{p1node}","p1rev":"{p1rev}","p2node":"{p2node}","p2rev":"{p2rev}"\n'
+csetFile: "./repocsets.txt"
+
+# The query used by hg command, like hg log -r "branch('re:<hgquery>')"
+hgquery: ".+15R3.*"
+
+# Regular expression. For long branch name, we should extract part of the branch name so that the graph will be compact.
+# The regular expression must be divided into three groups. The second group will be extracted as the tag name.
+branchNamePattern:  '(\w+_)(\d+.+)(_[a-zA-Z]+)'
+
+# Regular expression. Usually, a branch will be tagged if it is a release. This is to extract part of the tag name.
+# The regular expression must be divided into three groups. The second group will be extracted as the tag name.
+tagNamePattern:  '(\w+_)(\d+.+)(_[a-zA-Z]+)'
+
+# The following are the attributes of various change sets. See graphviz.org for more details.
+subgraphCluster: Yes
+arrange: Yes
+rank: Yes
+
+tipShape :  "diamond"
+tipStyle :  "rounded,filled"
+tipFillColor:  "gray"
+tipFontColor:  "black"
+
+tailShape:  "box"
+tailStyle:  "rounded,filled"
+tailFillColor:  "gray"
+tailFontColor:  "black"
+
+csetShape:  "box"
+csetStyle:  "rounded,filled"
+csetFillColor:  "lightcyan"
+csetFontColor:  "black"
+
+tagFillColor :  "limegreen"
+tagFontColor :  "white"
+
+mbShape:  "box"
+mbStyle:  "rounded,filled"
+mbFillColor:  "white"
+mbFontColor:  "black"
+
+# Color pool for the branch lines.
+colors:  ["deepskyblue2", "aquamarine", "chartreuse", "crimson", "darkgreen", "cyan", "greenyellow", "green3", "brown1", "green4", "magenta3", "magenta4", "maroon", "olivedrab3", "olivedrab4", "orange", "yellow4", "aqua"]
+...
