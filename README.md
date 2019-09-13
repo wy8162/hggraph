@@ -77,7 +77,7 @@ retrieveChangeSets: Yes
 repo: "please_replace_repo"
 
 # The Change Set (CSET) file must be produced by the following command:
-# hg log -r "branch('re:JPMC_15R2.+') or branch('re:JPMC_15R3.+') or branch('re:JPMC_15R6.+')" \
+# hg log -r "branch('re:J.+') or branch('re:J.+') or branch('re:J.+')" \
 # --template '"branch":"{branch}","children":"{children}",\
 # "user":"{author}","date":"{date|isodate}","message":"{firstline(desc)}",\
 # "tags":"{tags}","rev":"{rev}","node":"{node}","p1node":"{p1node}",\
