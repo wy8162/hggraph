@@ -116,7 +116,7 @@ from jenkinsapi.jenkins import Jenkins
 from collections import abc
 
 class FrozenJSON:
-    """A read-only façade for navigating a JSON-like object
+    """A read-only façade for navigating a JSON-like object
        using attribute notation.
        
        Credit: "O'Reilly Fluent Python", Luciano Ramalho
@@ -481,7 +481,7 @@ needChange: Yes
 # Values for variables not defined at the profile level
 #------------------------------------------------------
 # Jenkins' master URL
-jenkinServerUrl: "http://jenkinsmasterprod.dovetail.net/jenkins/"
+jenkinServerUrl: "http://jenkins.xyz.net/jenkins/"
 
 # User name and password to login to Jenkins master server
 userName: "<username>"
